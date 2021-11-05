@@ -11,9 +11,10 @@ I use few libraries depending on witch progarms you decide to use.
 	- matrix2.ino
 	- matrix2_reverse.ino
 	- matrix3.ino
-- MD_MAX72XX and MD_Parola
 	- matrix4.ino
+- MD_MAX72XX and MD_Parola
 	- matrix5.ino
+	- matrix6.ino
 ## Hardware
 I'm using an arduino UNO (for programs that use MD_MAX and MD_Parola it maters what model your using) and a 4 module of the 1088AS.
 
