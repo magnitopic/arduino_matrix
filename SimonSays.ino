@@ -127,8 +127,7 @@ void buttonCheck(int num)
   {
     if ((fnc_dynamic_digitalRead(2) == false))
     {
-      while (!(((fnc_dynamic_digitalRead(2) == true))))
-        ; // Evita que se registre el mismo valor varias veces
+      while (!(((fnc_dynamic_digitalRead(2) == true)))); // Evita que se registre el mismo valor varias veces
       Serial.println(String("se ha pulsado el boton 0"));
       if (num[i] != 0)
       {
@@ -137,8 +136,7 @@ void buttonCheck(int num)
     }
     else if ((fnc_dynamic_digitalRead(3) == false))
     {
-      while (!(((fnc_dynamic_digitalRead(3) == true))))
-        ; // Evita que se registre el mismo valor varias veces
+      while (!(((fnc_dynamic_digitalRead(3) == true)))); // Evita que se registre el mismo valor varias veces
       Serial.println(String("se ha pulsado el boton 1"));
       if (num[i] != 1)
       {
@@ -147,8 +145,7 @@ void buttonCheck(int num)
     }
     else if ((fnc_dynamic_digitalRead(4) == false))
     {
-      while (!(((fnc_dynamic_digitalRead(4) == true))))
-        ; // Evita que se registre el mismo valor varias veces
+      while (!(((fnc_dynamic_digitalRead(4) == true)))); // Evita que se registre el mismo valor varias veces
       Serial.println(String("se ha pulsado el boton 2"));
       if (num[i] != 2)
       {
@@ -157,8 +154,7 @@ void buttonCheck(int num)
     }
     else if ((fnc_dynamic_digitalRead(5) == false))
     {
-      while (!(((fnc_dynamic_digitalRead(5) == true))))
-        ; // Evita que se registre el mismo valor varias veces
+      while (!(((fnc_dynamic_digitalRead(5) == true)))); // Evita que se registre el mismo valor varias veces
       Serial.println(String("se ha pulsado el boton 3"));
       if (num[i] != 3)
       {
@@ -173,13 +169,12 @@ void loop()
 {
   if ((fnc_dynamic_digitalRead(6) == false))
   {
-    while (!(((fnc_dynamic_digitalRead(6) == true))))
-      ; // Evita que se registre el mismo valor varias veces
+    while (!(((fnc_dynamic_digitalRead(6) == true)))); // Evita que se registre el mismo valor varias veces
     bool anotherGame = true;
     if (anotherGame)
     {
       int num = 5;
-      buttonCheck(mostrar(num));
+      anotherGame=buttonCheck(mostrar(num));
     }
   }
 }
