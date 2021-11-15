@@ -175,13 +175,11 @@ void loop()
   if ((fnc_dynamic_digitalRead(9) == false))
   {
     while (!(((fnc_dynamic_digitalRead(9) == true)))); // Evita que se registre el mismo valor varias veces
-    bool anotherGame = true;
-    int num = 1;
-    //"New game" en la pantalla?
-  }
-  else if (anotherGame)
+    anotherGame = true;
+    num = 1;
+    Serial.print("New game");
+  }else if (anotherGame)
   {
-    num += 1;
     int lista[num];
     for (int i = 0; i <= num; i++)
     {
@@ -191,6 +189,7 @@ void loop()
     {
       anotherGame = buttonCheck(lista[i]);
     }
+    num += 1;
   }
   else
   {
