@@ -7,9 +7,7 @@ LedControl lc3 = LedControl(11, 13, 10, 4); // crea objeto
 
 //Variables que usaremos más adelante
 bool anotherGame = false;
-int num=0;
-
-#define demora 1000 // constante demora con valor de 1000
+int num = 0;
 
 byte x[8] = {  // array que contiene todos los elementos de las
     B10000001, // filas necesarias por mostrar el digito cero
@@ -82,8 +80,10 @@ void setup()
   pinMode(A4, OUTPUT);
   pinMode(A4, OUTPUT);
   while (Serial.available() > 0)
-  Serial.read();
+    Serial.read();
   Serial.begin(9600);
+  // Algoritmo más aleatorio para los random
+  randomSeed(analogRead(0));
 }
 
 // Prepara los botones
@@ -96,7 +96,6 @@ int fnc_dynamic_digitalRead(int _pin)
 //Patron de la matriz
 int mostrar()
 {
-  randomSeed(analogRead(0));
   int rnd = random(0, 4);
   if (rnd == 0)
   {
@@ -114,7 +113,6 @@ int mostrar()
   {
     mostrar_circulo();
   }
-  delay(demora);
   IsOff();
   delay(200);
   return rnd;
@@ -123,64 +121,86 @@ int mostrar()
 // Comprobación de los botones
 bool buttonCheck(int num)
 {
-  bool responido = false;
+  bool responido = true;
   while (responido)
   {
     if ((fnc_dynamic_digitalRead(2) == false))
     {
-      while (!(((fnc_dynamic_digitalRead(2) == true)))); // Evita que se registre el mismo valor varias veces
+      while (!(((fnc_dynamic_digitalRead(2) == true))))
+        ; // Evita que se registre el mismo valor varias veces
       Serial.println(String("se ha pulsado el boton 0"));
-      responido=true;
-      if (num != 0)
+      if (num == 0)
+      {
+        return true;
+      }
+      else
       {
         return false;
       }
+      responido=false;
     }
     else if ((fnc_dynamic_digitalRead(3) == false))
     {
-      while (!(((fnc_dynamic_digitalRead(3) == true)))); // Evita que se registre el mismo valor varias veces
+      while (!(((fnc_dynamic_digitalRead(3) == true))))
+        ; // Evita que se registre el mismo valor varias veces
       Serial.println(String("se ha pulsado el boton 1"));
-      responido=true;
-      if (num != 1)
+      if (num == 1)
+      {
+        return true;
+      }
+      else
       {
         return false;
       }
+      responido=false;
     }
     else if ((fnc_dynamic_digitalRead(4) == false))
     {
-      while (!(((fnc_dynamic_digitalRead(4) == true)))); // Evita que se registre el mismo valor varias veces
+      while (!(((fnc_dynamic_digitalRead(4) == true))))
+        ; // Evita que se registre el mismo valor varias veces
       Serial.println(String("se ha pulsado el boton 2"));
-      responido=true;
-      if (num != 2)
+      if (num == 2)
+      {
+        return true;
+      }
+      else
       {
         return false;
       }
+      responido=false;
     }
     else if ((fnc_dynamic_digitalRead(5) == false))
     {
-      while (!(((fnc_dynamic_digitalRead(5) == true)))); // Evita que se registre el mismo valor varias veces
+      while (!(((fnc_dynamic_digitalRead(5) == true))))
+        ; // Evita que se registre el mismo valor varias veces
       Serial.println(String("se ha pulsado el boton 3"));
-      responido=true;
-      if (num != 3)
+      if (num == 3)
+      {
+        return true;
+      }
+      else
       {
         return false;
       }
+      responido=false;
     }
   }
-  return true;
 }
 
 void loop()
 {
   if ((fnc_dynamic_digitalRead(9) == false))
   {
-    while (!(((fnc_dynamic_digitalRead(9) == true)))); // Evita que se registre el mismo valor varias veces
+    while (!(((fnc_dynamic_digitalRead(9) == true))))
+      ; // Evita que se registre el mismo valor varias veces
     anotherGame = true;
     num = 1;
     Serial.print("New game");
-  }else if (anotherGame)
+  }
+  else if (anotherGame)
   {
     int lista[num];
+    Serial.print(num);
     for (int i = 0; i <= num; i++)
     {
       lista[i] = mostrar();
