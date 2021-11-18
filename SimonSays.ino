@@ -113,6 +113,7 @@ int mostrar()
   {
     mostrar_circulo();
   }
+  delay(1000);
   IsOff();
   delay(200);
   return rnd;
@@ -137,7 +138,7 @@ bool buttonCheck(int num)
       {
         return false;
       }
-      responido=false;
+      responido = false;
     }
     else if ((fnc_dynamic_digitalRead(3) == false))
     {
@@ -152,7 +153,7 @@ bool buttonCheck(int num)
       {
         return false;
       }
-      responido=false;
+      responido = false;
     }
     else if ((fnc_dynamic_digitalRead(4) == false))
     {
@@ -167,7 +168,7 @@ bool buttonCheck(int num)
       {
         return false;
       }
-      responido=false;
+      responido = false;
     }
     else if ((fnc_dynamic_digitalRead(5) == false))
     {
@@ -182,9 +183,24 @@ bool buttonCheck(int num)
       {
         return false;
       }
-      responido=false;
+      responido = false;
+    }
+    else if ((fnc_dynamic_digitalRead(9) == false))
+    {
+      while (!(((fnc_dynamic_digitalRead(9) == true))))
+        ; // Evita que se registre el mismo valor varias veces
+      newGame();
+      return true;
+      responido = false;
     }
   }
+}
+
+void newGame()
+{
+  anotherGame = true;
+  num = 1;
+  Serial.print("New game");
 }
 
 void loop()
@@ -193,23 +209,24 @@ void loop()
   {
     while (!(((fnc_dynamic_digitalRead(9) == true))))
       ; // Evita que se registre el mismo valor varias veces
-    anotherGame = true;
-    num = 1;
-    Serial.print("New game");
+    newGame();
   }
   else if (anotherGame)
   {
     int lista[num];
     Serial.print(num);
-    for (int i = 0; i <= num; i++)
+    Serial.print("");
+    for (int i = 0; i < num; i++)
     {
       lista[i] = mostrar();
     }
-    for (int i = 0; i < sizeof(lista); i++)
+    for (int i = 0; i < num; i++)
     {
       anotherGame = buttonCheck(lista[i]);
+      Serial.print(anotherGame);
     }
     num += 1;
+    delay(1000);
   }
   else
   {
