@@ -132,10 +132,12 @@ bool buttonCheck(int num)
       Serial.println(String("se ha pulsado el boton 0"));
       if (num == 0)
       {
+        tone(6, 659.26, 250);
         return true;
       }
       else
       {
+        tone(6, 523.25, 250);
         return false;
       }
       responido = false;
@@ -147,10 +149,12 @@ bool buttonCheck(int num)
       Serial.println(String("se ha pulsado el boton 1"));
       if (num == 1)
       {
+        tone(6, 698.46, 250);
         return true;
       }
       else
       {
+        tone(6, 523.25, 250);
         return false;
       }
       responido = false;
@@ -162,10 +166,12 @@ bool buttonCheck(int num)
       Serial.println(String("se ha pulsado el boton 2"));
       if (num == 2)
       {
+        tone(6, 783.99, 250);
         return true;
       }
       else
       {
+        tone(6, 523.25, 250);
         return false;
       }
       responido = false;
@@ -177,10 +183,12 @@ bool buttonCheck(int num)
       Serial.println(String("se ha pulsado el boton 3"));
       if (num == 3)
       {
+        tone(6, 880, 250);
         return true;
       }
       else
       {
+        tone(6, 523.25, 250);
         return false;
       }
       responido = false;
