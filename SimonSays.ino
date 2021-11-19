@@ -189,17 +189,17 @@ bool buttonCheck(int num)
     {
       while (!(((fnc_dynamic_digitalRead(9) == true))))
         ; // Evita que se registre el mismo valor varias veces
-      newGame();
+      newGame(0);
       return true;
       responido = false;
     }
   }
 }
 
-void newGame()
+void newGame(int number)
 {
   anotherGame = true;
-  num = 1;
+  num = number;
   Serial.print("New game");
 }
 
@@ -209,7 +209,7 @@ void loop()
   {
     while (!(((fnc_dynamic_digitalRead(9) == true))))
       ; // Evita que se registre el mismo valor varias veces
-    newGame();
+    newGame(1);
   }
   else if (anotherGame)
   {
