@@ -42,11 +42,11 @@ The _SimonSays.ino_ file is diferent from all the others.
 
 The other files are tests or proofs of concept for the library and the 1088AS matri. But SimonSays is a big project that creates a fully functioning Simon Says game for arduino using the 1088AS matrix.
 
-Video of the finished proyect working: https://youtu.be/FP_efhWCPdQ
+Video of the finished project working: https://youtu.be/FP_efhWCPdQ
 
 ## Hardware
 
-List of comoponets and the arduino ports used:
+List of components and the arduino ports used:
 
 | Component Name                    | Pin used |
 | --------------------------------- | -------- |
